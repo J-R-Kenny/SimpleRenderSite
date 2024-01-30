@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
 app.get("/jokes", async (req, res) => {
   console.log(`Inside .get for /jokes`);
   const jokes = await mainTask();
+  console.log(`Inside .get for jokes but just before res.render`);
   res.render("jokes", { jokes });
 });
 
