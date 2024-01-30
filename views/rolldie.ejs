@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Website</title>
+</head>
+
+<body>
+  <header>
+    <h1>My Basic Website</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="http://localhost:3000">Home</a></li>
+      <li><a href="http://localhost:3000/rolldie">RollDie</a></li>
+      <li><a href="http://localhost:3000/warhammer">Warhammer</a></li>
+      <li><a href="http://localhost:3000/jokes">Jokes</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>Roll a dice!</h2>
+    <p>This is the dice rolling section.</p>
+    <p><%= diceRoll() %></p>
+  </section>
+  <section>
+    <h2>Generate a Sentence!</h2>
+    <p>This is the sentence generating section.</p>
+    <p>Your random sentence is: <%= randomSentence() %>.</p>
+  </section>
+</body>
+
+</html>
