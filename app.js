@@ -61,6 +61,17 @@ app.get("/jokes/:category", async (req, res) => {
   res.render("JokeByCategory", { jokes });
 });
 
+app.get("/youtubeform", (req, res) => {
+  res.render("youtubeform");
+});
+
+app.get("/faves", (req, res) => {
+  const food = req.query.food;
+  const drink = req.query.drink;
+  const game = req.query.game;
+  res.render("faves", { food, drink, game });
+});
+
 app.use((req, res) => {
   console.log(`Inside .get for 404`);
   res.status(404).render("404");
