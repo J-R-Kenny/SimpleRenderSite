@@ -1,0 +1,16 @@
+/**
+ * Removes vowels from a given string.
+ *
+ * @param {string} InputString - The input string from which vowels will be removed.
+ * @returns {string} A new string with all vowels removed.
+ *
+ * @example
+ * const originalString = "Hello, World!";
+ * const stringWithoutVowels = removeVowels(originalString);
+ * console.log(stringWithoutVowels); // Output: "Hll, Wrld!"
+ */
+function removeVowels(InputString) {
+  return InputString.replace(/[aeiouAEIOU]/g, "");
+}
+
+module.exports = removeVowels;

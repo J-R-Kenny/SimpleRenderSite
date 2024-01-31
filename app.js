@@ -1,5 +1,5 @@
 console.log(`Start of app.js`);
-
+const removeVowels = require("./StringFunction");
 const express = require("express");
 const app = express();
 const { Pool } = require("pg");
@@ -35,6 +35,24 @@ app.get("/rolldie", (req, res) => {
 app.get("/warhammer", (req, res) => {
   console.log(`Inside .get for /warhammer`);
   res.render("warhammer", { factions });
+});
+
+app.get("/reverse/:word", (req, res) => {
+  const wordToReverse = req.params.word;
+  reversedWord = reverseString(wordToReverse);
+  res.send(`This is your word reversed:  ${reversedWord}`);
+});
+
+app.get("/Ihatevowels/:word", (req, res) => {
+  const vowelsRemoved = removeVowels(req.params.word);
+  res.send(`I've disposed of those vowels for you:  ${vowelsRemoved}`);
+});
+
+app.get("/add/:num1/:num2", (req, res) => {
+  const num1 = parseInt(req.params.num1);
+  const num2 = parseInt(req.params.num2);
+  const numTotal = num1 + num2;
+  res.send(`You gave me 2 numbers, here is there total: ${numTotal}`);
 });
 
 app.use((req, res) => {
@@ -87,4 +105,8 @@ async function mainTask() {
   console.log(`Inside mainTask DB Query Function`);
   const dbResult = await pool.query("select * from jokes");
   return dbResult.rows;
+}
+
+function reverseString(inputString) {
+  return inputString.split("").reverse().join("");
 }
