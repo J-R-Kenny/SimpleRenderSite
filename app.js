@@ -52,7 +52,7 @@ app.get("/add/:num1/:num2", (req, res) => {
   const num1 = parseInt(req.params.num1);
   const num2 = parseInt(req.params.num2);
   const numTotal = num1 + num2;
-  res.send(`You gave me 2 numbers, here is there total: ${numTotal}`);
+  res.send(`You gave me 2 numbers, here is their total: ${numTotal}`);
 });
 
 app.use((req, res) => {
