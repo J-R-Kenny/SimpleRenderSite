@@ -55,6 +55,12 @@ app.get("/add/:num1/:num2", (req, res) => {
   res.send(`You gave me 2 numbers, here is their total: ${numTotal}`);
 });
 
+app.get("/jokes/:category", async (req, res) => {
+  const inputCategory = req.params.category;
+  const jokes = await jokesDBQuery(inputCategory);
+  res.render("JokeByCategory", { jokes });
+});
+
 app.use((req, res) => {
   console.log(`Inside .get for 404`);
   res.status(404).render("404");
@@ -104,6 +110,14 @@ const factions = [
 async function mainTask() {
   console.log(`Inside mainTask DB Query Function`);
   const dbResult = await pool.query("select * from jokes");
+  return dbResult.rows;
+}
+
+async function jokesDBQuery(category) {
+  console.log(`Inside mainTask DB Query Function`);
+  const dbQuery = "select * from jokes where category = $1";
+  const dbInput = [category];
+  const dbResult = await pool.query(dbQuery, dbInput);
   return dbResult.rows;
 }
 

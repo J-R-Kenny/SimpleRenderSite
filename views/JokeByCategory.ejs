@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Website</title>
+</head>
+
+<body>
+  <header>
+    <h1>My Basic Website</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/rolldie">RollDie</a></li>
+      <li><a href="/warhammer">Warhammer</a></li>
+      <li><a href="/jokes">Jokes</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>Jokes Section</h2>
+    <p>You requested a specific joke category:</p>
+    <% for (let element of jokes){%>
+    <h3><%= element.body %></h3>
+    <p><%= element.author %></p>
+    <% } %>
+  </section>
+</body>
+
+</html>
